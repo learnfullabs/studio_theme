@@ -1,0 +1,52 @@
+{#
+/**
+ * @file
+ * Default theme implementation for flag links.
+ *
+ * Available functions:
+ * - flagcount(flag, flaggable) gets the number of flaggings for the given flag and flaggable.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the link element.
+ * - title: The flag link title.
+ * - action: 'flag' or 'unflag'
+ * - flag: The flag object.
+ * - flaggable: The flaggable entity.
+ */
+#}
+{% spaceless %}
+{# Attach the flag CSS library.#}
+{{ attach_library('flag/flag.link') }}
+
+{# Depending on the flag action, set the appropriate action class. #}
+{% if action == 'unflag' %}
+    {% set action_class = 'action-unflag' %}
+{% else %}
+    {% set action_class = 'action-flag' %}
+{% endif %}
+
+{# Set the remaining Flag CSS classes. #}
+{%
+  set classes = [
+    'flag',
+    'flag-' ~ flag.id()|clean_class,
+    'js-flag-' ~ flag.id()|clean_class ~ '-' ~ flaggable.id(),
+    action_class,
+    'btn btn-sm btn-secondary d-inline-flex align-items-center use-ajax'
+  ]
+%}
+
+{# Set nofollow to prevent search bots from crawling anonymous flag links #}
+{% set attributes = attributes.setAttribute('rel', 'nofollow') %}
+{#{% set attributes = attributes.setAttribute('class','btn btn-light use-ajax') %}#}
+{% set attributes = attributes.setAttribute('class', classes|join(' ')) %}
+
+{# <div class="{{classes|join(' ')}}"><a{{ attributes }}>{{ title }}</a></div> #}
+
+
+<a{{ attributes }}>
+  <span class="material-icons" aria-hidden="true" focusable="false">bookmark_add</span>
+  <span class="visually-hidden">Bookmark</span>
+  <span class="ml-2 hidden-views">Bookmarked</span>
+</a>
+{% endspaceless %}

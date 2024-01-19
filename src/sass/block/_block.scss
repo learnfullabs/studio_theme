@@ -1,0 +1,56 @@
+/**
+ * H5P info block (on node page)
+**/
+.views-field.adaptid-field {
+  code {
+    width: 100%;
+    display: block;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    padding: 0.5em;
+    color: $body-color;
+  }
+  #copy-adaptid {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: small;
+  }
+  #copy-adaptid:hover,
+  #copy-adaptid:focus {
+    cursor: pointer;
+  }
+}
+
+
+/**
+ * H5P Resources in Collection Page
+**/
+
+.collection-resources-block {
+  .item-list {
+    > h3 {
+      font-size: $h5-font-size;
+      color: $text-muted;
+      margin-bottom: 0.5rem;
+      margin-top: 2rem;
+    }
+  }
+}
+
+/**
+ * Discover Search Form Block
+**/
+.block--discoversearchbar .form-inline {
+  gap: 0.5em;
+}
+
+/**
+ * Discover: Featured Blocks
+**/
+.block--views-block--h5p-library-featured-featured-h5p,
+.block--views-block--h5p-library-featured-featured-collections
+ {
+  max-width: 1366px;
+  width: 100%;
+}

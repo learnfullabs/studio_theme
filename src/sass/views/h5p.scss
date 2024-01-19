@@ -1,0 +1,120 @@
+$h5p_types: (
+  "collection": "../icons/collections_icon.svg",
+  "Accordion": "../icons/h5p/Accordion.svg",
+  "Advanced fill the blanks": "../icons/h5p/AdvancedBlanks.svg",
+  "Advent Calendar": "../icons/h5p/AdventCalendar.svg",
+  "Agamotto": "../icons/h5p/Agamotto.svg",
+  "appear.in": "../icons/h5p/AppearIn.svg",
+  "Arithmetic Quiz": "../icons/h5p/ArithmeticQuiz.svg",
+  "AR Scavenger (beta)": "../icons/h5p/ARScavenger.svg",
+  "Audio": "../icons/h5p/Audio.svg",
+  "Audio Recorder": "../icons/h5p/AudioRecorder.svg",
+  "Fill in the Blanks": "../icons/h5p/Blanks.svg",
+  "Branching Question": "../icons/h5p/BranchingQuestion.svg",
+  "Branching Scenario": "../icons/h5p/BranchingScenario.svg",
+  "Chart": "../icons/h5p/Chart.svg",
+  "Collage": "../icons/h5p/Collage.svg",
+  "Column": "../icons/h5p/Column.svg",
+  "Cornell Notes": "../icons/h5p/CornellNotes.svg",
+  "Course Presentation": "../icons/h5p/CoursePresentation.svg",
+  "Crossword": "../icons/h5p/Crossword.svg",
+  "Dialog Cards": "../icons/h5p/Dialogcards.svg",
+  "Dictation": "../icons/h5p/Dictation.svg",
+  "Documentation Tool": "../icons/h5p/DocumentationTool.svg",
+  "Drag and Drop": "../icons/h5p/DragQuestion.svg",
+  "Drag the Words": "../icons/h5p/DragText.svg",
+  "Drag Text": "../icons/h5p/DragText.svg",
+  "Essay": "../icons/h5p/Essay.svg",
+  "Find The Words": "../icons/h5p/FindTheWords.svg",
+  "Find the Hotspot": "../icons/h5p/ImageHotspots.svg",
+  "Find Multiple Hotspots": "../icons/h5p/FindMultipleHotspots.svg",
+  "Flashcards": "../icons/h5p/Flashcards.svg",
+  "Guess the Answer": "../icons/h5p/GuessTheAnswer.svg",
+  "Iframe Embedder": "../icons/h5p/IFrameEmbed.svg",
+  "Image Choice": "../icons/h5p/MultiMediaChoice.svg",
+  "Image Hotspot Question": "../icons/h5p/ImageHotspotQuestion.svg",
+  "Image Hotspots": "../icons/h5p/ImageHotspots.svg",
+  "Image Juxtaposition": "../icons/h5p/ImageJuxtaposition.svg",
+  "Image Pair": "../icons/h5p/ImagePair.svg",
+  "Image Sequencing": "../icons/h5p/ImageSequencing.svg",
+  "Image Slider": "../icons/h5p/ImageSlider.svg",
+  "Image Zoom": "../icons/h5p/ImageZoom.svg",
+  "Interactive Book": "../icons/h5p/InteractiveBook.svg",
+  "Interactive Video": "../icons/h5p/InteractiveVideo.svg",
+  "KewAr Code": "../icons/h5p/KewArCode.svg",
+  "Mark the Words": "../icons/h5p/MarkTheWords.svg",
+  "Memory Game": "../icons/h5p/MemoryGame.svg",
+  "Multiple Choice": "../icons/h5p/MultiChoice.svg",
+  "Personality Quiz": "../icons/h5p/PersonalityQuiz.svg",
+  "Questionnaire": "../icons/h5p/Questionnaire.svg",
+  "Question Set": "../icons/h5p/QuestionSet.svg",
+  "Single Choice Set": "../icons/h5p/QuestionSet.svg",
+  "Sort the Paragraphs": "../icons/h5p/SortParagraphs.svg",
+  "Speak the Words": "../icons/h5p/SpeakTheWords.svg",
+  "Speak the Words Set": "../icons/h5p/SpeakTheWordsSet.svg",
+  "Structure Strip": "../icons/h5p/StructureStrip.svg",
+  "Summary": "../icons/h5p/Summary.svg",
+  "Three Image": "../icons/h5p/ThreeImage.svg",
+  "Timeline": "../icons/h5p/Timeline.svg",
+  "True/False Question": "../icons/h5p/TrueFalse.svg",
+  "Twitter User Feed": "../icons/h5p/TwitterUserFeed.svg",  
+  "Virtual Tour (360)": "../icons/h5p/VirtualTour.svg",  
+);
+
+span[data-h5p-type] {
+  font-size: 0;
+  display: block;
+  height: 50px;
+  width: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+@each $type, $bg in $h5p_types {
+  span[data-h5p-type="#{$type}"] {
+    background-image: url($bg);
+  }
+}
+
+.list-view h3.item-title {
+  font-size: 1.25em;
+}
+
+// .collapse.show {
+//   height: auto !important;
+//   width: auto !important;
+// }
+
+.toggle_preview .material-icons {
+  transform: rotate(0deg);
+}
+.toggle_preview.active .material-icons {
+  transform: rotate(180deg);
+}
+
+// .item-actions > .flag-bookmark:not(.btn-compressed) {
+//   display: none !important;
+// }
+
+
+.views-list .flag .hidden-views {
+  display: none;
+}
+
+
+#edit-type--2 .form-checkboxes.bef-checkboxes {
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.form-checkboxes.bef-checkboxes {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-checkboxes.bef-checkboxes .js-form-type-checkbox {
+  order: unset;
+}
+.form-checkboxes.bef-checkboxes .js-form-type-checkbox.top {
+  order: -1;
+}

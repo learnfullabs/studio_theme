@@ -1,0 +1,93 @@
+.views-exposed-form.block form > .form-item {
+  border-bottom: $border-width solid $border-color;
+  padding-bottom: 1rem;
+}
+
+.views-exposed-form.block form > .form-item:last-of-type {
+  border-bottom: 0;
+}
+
+.views-exposed-form.block form > .form-item > label {
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.sidebar__left .views-exposed-form.block form > .form-actions {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  padding: 1.5em 1em;
+  background: white;
+  border-top: $border-width solid $border-color;
+}
+
+/**
+* auto complete
+*/
+.js input.form-autocomplete {
+  background-position: 97% center;
+}
+
+.ui-autocomplete li > a {
+  display: block;
+}
+.ui-autocomplete li > a:hover,
+.ui-autocomplete li > a:focus {
+  text-decoration: none;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active,
+.ui-button:active,
+.ui-button.ui-state-active:hover {
+	border: 1px solid #003eff;
+	background: white;
+	color: #003eff;
+}
+
+
+.views-exposed-form.bef-exposed-form.block details.card {
+  border: 0;
+  box-shadow: unset;
+  border-radius: unset;
+  background: unset;
+}
+.views-exposed-form.bef-exposed-form.block details.card > summary.card-header {
+  list-style: none;
+  border-bottom: $border-width solid $border-color;
+  background: unset;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.views-exposed-form.bef-exposed-form.block details.card > summary.card-header::after {
+  font-family: 'Material Icons';
+  content: "expand_more";
+  font-size: 1.5em;
+}
+
+details.card[open] .card-header::after {
+  content: "expand_less" !important;
+}
+
+summary.card-header:hover,
+summary.card-header:focus {
+  color: $secondary;
+}
+
+a.bef-toggle {
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+ul.ui-autocomplete > li > a {
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

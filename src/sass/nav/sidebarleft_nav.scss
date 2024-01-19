@@ -1,0 +1,28 @@
+.sidebar__left {
+
+  ul.nav {
+    display: block;
+    margin-top: 1em;
+
+    > li {
+      a.nav-link {
+        display: block;
+        margin-bottom: 0.5em;
+        background-color: $gray-200;
+        color: $black;
+      }
+      a.nav-link:hover,
+      a.nav-link:focus {
+        background-color: $gray-100;
+        color: $black;
+        outline: 1px inset;
+      }
+      a.is-active.nav-link {
+        background-color: $gray-800;
+        color: $white;
+      }
+    } 
+  }
+
+
+}

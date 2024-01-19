@@ -1,0 +1,36 @@
+// .flag.action-unflag > a:hover,
+// .flag.action-unflag > a:focus {
+//   background-color: $warning;
+//   color: $dark;
+// }
+
+.flag.action-unflag {
+  background-color: $primary;
+  color: $light;
+}
+.flag.action-unflag:hover,
+.flag.action-unflag:focus {
+  background-color: $white;
+  border-color: $danger;
+  color: $danger;
+}
+
+.flag.action-flag:hover,
+.flag.action-flag:focus {
+  background-color: $primary;
+  color: $light;
+}
+
+.flag-badge {
+  margin: 0 0.5em 0 1em;
+}
+
+// body.node .flag-bookmark {
+//   margin-top: 1em;
+//   padding-top: 1em;
+//   border-top: $border-width solid $border-color;
+//   > a {
+//     display: inline-flex;
+//   }
+  
+// }
