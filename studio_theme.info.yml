@@ -21,7 +21,7 @@ regions:
 
 libraries:
   - radix/style
-  - learnful_studio/style
+  - studio_theme/style
 
 libraries-override:
   radix/bootstrap: false
@@ -31,9 +31,4 @@ ckeditor_stylesheets:
 
 components:
   namespaces:
-    learnful_studio: src/components
-
-# Information added by Drupal.org packaging script on 2020-09-30
-version: '8.x-4.10'
-project: 'radix'
-datestamp: 1601449011
+    studio_theme: src/components
