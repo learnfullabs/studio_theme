@@ -1,0 +1,7 @@
+{
+    "name": "learnfullabs/studio_theme",
+    "type": "drupal-custom-theme",
+    "description": "Default Learnful Studio Theme. Built on Bootstrap 5 / Radix.",
+    "homepage": "https://github.com/learnfullabs/studio_theme",
+    "license": "GPL-3.0+"
+  }
