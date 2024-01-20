@@ -1,5 +1,5 @@
 # Schema for the configuration files of the Learnful Studio theme.
 
-learnful_studio.settings:
+studio_theme.settings:
   type: theme_settings
   label: 'Learnful Studio settings'
