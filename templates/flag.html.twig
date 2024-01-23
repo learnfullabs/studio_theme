@@ -14,7 +14,7 @@
  * - flaggable: The flaggable entity.
  */
 #}
-{% spaceless %}
+{% apply spaceless %}
 {# Attach the flag CSS library.#}
 {{ attach_library('flag/flag.link') }}
 
@@ -61,4 +61,4 @@
 
 <a{{ attributes }}>{{ title }}</a>
 <a{{ compressed_attributes }}>{{ title }}</a>
-{% endspaceless %}
+{% endapply %}

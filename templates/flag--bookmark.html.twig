@@ -14,7 +14,7 @@
  * - flaggable: The flaggable entity.
  */
 #}
-{% spaceless %}
+{% apply spaceless %}
 {# Attach the flag CSS library.#}
 {{ attach_library('flag/flag.link') }}
 
@@ -49,4 +49,4 @@
   <span class="visually-hidden">Bookmark</span>
   <span class="ml-2 hidden-views">Bookmarked</span>
 </a>
-{% endspaceless %}
+{% endapply %}
