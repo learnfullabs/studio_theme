@@ -9647,6 +9647,18 @@ body.no_scroll {
     background-color: unset;
   }
 }
+.navbar.sticky-top {
+  z-index: 501;
+}
+
+body.toolbar-horizontal .navbar.sticky-top {
+  top: 39px;
+}
+
+body.toolbar-horizontal.toolbar-tray-open .navbar.sticky-top {
+  top: 78px;
+}
+
 .block--sitebranding {
   width: 13rem;
   max-width: 200px;
