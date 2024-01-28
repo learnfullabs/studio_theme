@@ -7,7 +7,7 @@
  | for your application. See https://github.com/JeffreyWay/laravel-mix.
  |
  */
-const proxy = 'http://studio.v2';
+const proxy = 'https://stage-camerise.learnful.app/learnful_studio_01/web/';
 const mix = require('laravel-mix');
 
 /*

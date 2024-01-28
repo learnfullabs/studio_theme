@@ -9556,6 +9556,12 @@ a.text-dark:hover, a.text-dark:focus {
   visibility: hidden !important;
 }
 
+.mw-narrow {
+  max-width: 1366px;
+  margin: auto;
+  width: 100%;
+}
+
 .gap-05 {
   gap: 0.5em;
 }
