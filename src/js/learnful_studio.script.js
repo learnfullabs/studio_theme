@@ -244,15 +244,17 @@ import Axios from 'axios';
   Drupal.behaviors.togglePreview = {
     attach: function (context) {
       $('a.toggle_preview').unbind().click(function(){
+        let type = $(this).attr('data-toggle-type');
         let target = $(this).attr('href');
-        let src = $(target).attr('data-frame-src');
-        let iframe = `<iframe src="${src}" class="h5p-iframe" frameborder="0" scrolling="no"  allowfullscreen="allowfullscreen" lang="en" height="100%" width="100%"></iframe><script src="/modules/contrib/h5p/vendor/h5p/h5p-core/js/h5p-resizer.js" charset="UTF-8"></script>`;
-        if ($(target + ' iframe').length) {          
-        } else {
-          $(target).html(iframe);
+        if (type === 'H5P Resource') {
+          let src = $(target).attr('data-frame-src');
+          let iframe = `<iframe src="${src}" class="h5p-iframe" frameborder="0" scrolling="no"  allowfullscreen="allowfullscreen" lang="en" height="100%" width="100%"></iframe><script src="/modules/contrib/h5p/vendor/h5p/h5p-core/js/h5p-resizer.js" charset="UTF-8"></script>`;
+          if ($(target + ' iframe').length) {          
+          } else {
+            $(target).html(iframe);
+          }
         }
         $(this).toggleClass('active');
-
       });
     }
   }
