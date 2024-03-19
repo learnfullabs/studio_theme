@@ -246,15 +246,39 @@ import Axios from 'axios';
       $('a.toggle_preview').unbind().click(function(){
         let type = $(this).attr('data-toggle-type');
         let target = $(this).attr('href');
-        if (type === 'H5P Resource') {
-          let src = $(target).attr('data-frame-src');
-          let iframe = `<iframe src="${src}" class="h5p-iframe" frameborder="0" scrolling="no"  allowfullscreen="allowfullscreen" lang="en" height="100%" width="100%"></iframe><script src="/modules/contrib/h5p/vendor/h5p/h5p-core/js/h5p-resizer.js" charset="UTF-8"></script>`;
-          if ($(target + ' iframe').length) {          
-          } else {
-            $(target).html(iframe);
-          }
+
+        switch (type) {
+          case "Resource":
+            $(this).toggleClass('active');
+            console.log('resource');
+            break;
+          case "H5P Resource":
+            let src = $(target).attr('data-frame-src');
+            let iframe;
+            if (src){
+              iframe = `<iframe src="${src}" class="h5p-iframe" frameborder="0" scrolling="no"  allowfullscreen="allowfullscreen" lang="en" height="100%" width="100%"></iframe><script src="/modules/contrib/h5p/vendor/h5p/h5p-core/js/h5p-resizer.js" charset="UTF-8"></script>`;
+            }
+            if ($(target + ' iframe').length) {          
+            } else {
+              $(target).html(iframe);
+            }
+            console.log('h5p');
+            break;
+          default:
+            $(this).toggleClass('active');
+            console.log('nothing');
+            break;
         }
-        $(this).toggleClass('active');
+
+        // if (type === 'H5P Resource') {
+        //   let src = $(target).attr('data-frame-src');
+        //   let iframe = `<iframe src="${src}" class="h5p-iframe" frameborder="0" scrolling="no"  allowfullscreen="allowfullscreen" lang="en" height="100%" width="100%"></iframe><script src="/modules/contrib/h5p/vendor/h5p/h5p-core/js/h5p-resizer.js" charset="UTF-8"></script>`;
+        //   if ($(target + ' iframe').length) {          
+        //   } else {
+        //     $(target).html(iframe);
+        //   }
+        // }
+        
       });
     }
   }
