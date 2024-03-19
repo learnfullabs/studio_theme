@@ -1,10 +1,12 @@
-#metata-sidebar {
-    span.views-label {
-        font-weight: bold;
-        color: slategrey;
+@include media-breakpoint-up(xs) {
+    .resource-node-page .w-75 {
+      width: 100% !important;
     }
-    .field-content {
-        font-size: 1.2em;
+}
+  
+  
+@include media-breakpoint-up(xl) {
+    .resource-node-page .w-75 {
+        width: 75% !important;
     }
-
 }

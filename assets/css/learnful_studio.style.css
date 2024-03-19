@@ -9721,14 +9721,15 @@ body.toolbar-horizontal.toolbar-tray-open .navbar.sticky-top {
   color: #fff;
 }
 
-#metata-sidebar span.views-label {
-  font-weight: bold;
-  color: slategrey;
-}
-#metata-sidebar .field-content {
-  font-size: 1.2em;
+.resource-node-page .w-75 {
+  width: 100% !important;
 }
 
+@media (min-width: 1200px) {
+  .resource-node-page .w-75 {
+    width: 75% !important;
+  }
+}
 .h5p-node-page .w-75 {
   width: 100% !important;
 }
