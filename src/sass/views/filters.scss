@@ -12,6 +12,11 @@
   font-weight: 300;
 }
 
+.form-check-label {
+  word-break: break-word;
+  font-size: 11px;
+}
+
 .sidebar__left .views-exposed-form.block form > .form-actions {
   position: sticky;
   bottom: 0;
@@ -118,7 +123,8 @@ ul.ui-autocomplete > li > a {
       background-color: $gray-100;
       color: $primary;
       margin-left: 1em;
-      padding: 0 0.25em;
+      padding: 0;
+      cursor: pointer;
     }
     a.arrow.collapsed::before {
       content: '+';

@@ -3,3 +3,23 @@
     margin: auto;
     width: 100%;
 }
+
+.members-only {
+  display: none;
+  visibility: hidden;
+}
+
+body.user-logged-in .members-only {
+  display: block;
+  visibility: visible;
+}
+
+.visitors-only {
+  display: block;
+  visibility: visible;
+}
+
+body.user-logged-in .visitors-only {
+  display: none;
+  visibility: hidden;
+}

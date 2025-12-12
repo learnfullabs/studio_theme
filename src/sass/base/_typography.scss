@@ -1,0 +1,39 @@
+@include media-breakpoint-up(xs) {
+
+  .item-subject {
+    max-width: calc(100% - 3em);
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+
+@include media-breakpoint-up(md) {
+
+  h4,
+  .h4 {
+    @include font-size(1.2rem);
+  }
+
+  h3,
+  .h3 {
+    @include font-size(1.1rem);
+  }
+
+  .item-actions>.btn.toggle_preview {
+    padding: 0;
+    width: 100%;
+  }
+  .item-subject {
+    max-width: unset;
+    overflow: unset;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .item-actions>.btn.toggle_preview {
+    padding: 0.25rem 0.5rem;
+    width: unset;
+  }
+
+}

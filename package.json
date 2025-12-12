@@ -1,6 +1,6 @@
 {
-  "name": "studio_theme",
-  "description": "A theme based on Radix.",
+  "name": "Camerise Studio Theme",
+  "description": "Camerise Studio Theme.",
   "private": true,
   "scripts": {
     "postinstall": "find node_modules/ -name '*.info' -type f -delete",

@@ -45,7 +45,7 @@
   {% endembed %}
 
   <div id="_wrapper" class="d-flex">
-    <main id="main-content" class="order-1 flex-fill px-5 pb-5 pt-3">
+    <main id="main-content" class="order-1 flex-fill px-md-4 px-sm-0 pb-5 pt-3">
       {% if page.header %}
         <header class="page__header mb-3">
           <div class="container">
@@ -56,7 +56,7 @@
 
       {% if page.content %}
         <div class="page__content">
-          <div class="container w-75">
+          <div class="container">
             {{ page.content }}
           </div>
         </div>
@@ -83,7 +83,7 @@
   {% if page.footer %}
     <footer class="page__footer">
       <div class="">
-        <div class="justify-content-md-between align-items-md-center">
+        <div class="justify-content-md-between align-items-md-center text-center text-md-left border-top bg-white pt-5">
           {{ page.footer }}
         </div>
       </div>

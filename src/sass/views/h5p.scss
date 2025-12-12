@@ -29,6 +29,7 @@ $h5p_types: (
   "Find the Hotspot": "../icons/h5p/ImageHotspots.svg",
   "Find Multiple Hotspots": "../icons/h5p/FindMultipleHotspots.svg",
   "Flashcards": "../icons/h5p/Flashcards.svg",
+  "Game Map": "../icons/h5p/GuessTheAnswer.svg",
   "Guess the Answer": "../icons/h5p/GuessTheAnswer.svg",
   "Iframe Embedder": "../icons/h5p/IFrameEmbed.svg",
   "Image Choice": "../icons/h5p/MultiMediaChoice.svg",
@@ -99,7 +100,7 @@ span[data-h5p-type] {
 
 
 .views-list .flag .hidden-views {
-  display: none;
+  display: none !important;
 }
 
 

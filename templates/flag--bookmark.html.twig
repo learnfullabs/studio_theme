@@ -32,7 +32,7 @@
     'flag-' ~ flag.id()|clean_class,
     'js-flag-' ~ flag.id()|clean_class ~ '-' ~ flaggable.id(),
     action_class,
-    'btn btn-sm btn-secondary rounded-0 d-inline-flex align-items-center use-ajax'
+    'btn btn-lg btn-block btn-outline-primary rounded-pill d-inline-flex align-items-center justify-content-center use-ajax mb-2'
   ]
 %}
 
@@ -47,6 +47,7 @@
 <a{{ attributes }}>
   <span class="material-icons" aria-hidden="true" focusable="false">bookmark_add</span>
   <span class="visually-hidden">Bookmark</span>
-  <span class="ml-2 hidden-views">Bookmarked</span>
+  <span class="ml-2 hidden-views action-text">Add to my Bookmarks</span>
+  <span class="ml-2 hidden-views unaction-text">Remove from Bookmark</span>
 </a>
 {% endapply %}

@@ -31,7 +31,9 @@
   {% endif %}
 
   <div class="card-body">
-    {{ description }}
+    {% if description %}
+      <p class="small text-muted">{{ description }}</p>
+    {% endif %}
     {{ children }}
     {{ value }}
   </div>

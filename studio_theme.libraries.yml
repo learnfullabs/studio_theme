@@ -3,11 +3,17 @@ style:
   css:
     theme:
       assets/css/learnful_studio.style.css: { minified: true }
+      'https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap': { type: external }
+      'https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@400;600;700;800;900&family=Montserrat:wght@100..900&display=swap': { type: external }
   js:
+    assets/js/htmlencode.js: { minified: true }
     'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js': { type: external }
     'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js': { type: external }
     assets/js/learnful_studio.script.js: { minified: true }
     assets/js/livesearch.min.js: { minified: true }
+    src/js/studio_theme.js: {}
   dependencies:
     - core/jquery
+    - core/jquery.once
     - core/drupal
+    

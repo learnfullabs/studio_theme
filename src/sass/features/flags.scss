@@ -25,6 +25,23 @@
   margin: 0 0.5em 0 1em;
 }
 
+.flag.action-unflag {
+  .action-text {
+    display: none;
+  }
+  .unaction-text {
+    display: block;
+  }
+}
+.flag.action-flag {
+  .action-text {
+    display: block;
+  }
+  .unaction-text {
+    display: none;
+  }
+}
+
 // body.node .flag-bookmark {
 //   margin-top: 1em;
 //   padding-top: 1em;

@@ -8,6 +8,30 @@ import Axios from 'axios';
 
   'use strict';
 
+  Drupal.behaviors.langSwitch = {
+    attach: function (context) {
+
+      let currentUrl = window.location.href;
+      setActiveBtn(currentUrl);
+      
+      function setActiveBtn(url) {
+        // Check if 'fr' is present in the URL
+        if (url.indexOf('fr') !== -1) {
+          document.getElementById('switch-fr').classList.add('active');
+          document.getElementById('switch-fr').href = window.location.pathname;
+          document.getElementById('switch-en').classList.remove('active');
+          document.getElementById('switch-en').href = `${window.location.pathname.replace('/fr', '')}/`;
+        } else {
+          document.getElementById('switch-fr').classList.remove('active');
+          document.getElementById('switch-fr').href = `/fr${window.location.pathname}`;
+          document.getElementById('switch-en').classList.add('active');
+          document.getElementById('switch-en').href = window.location.pathname;
+        }
+      }
+
+    }
+  }
+
   Drupal.behaviors.licenseAttribution = {
     attach: function (context) {
 
@@ -161,26 +185,7 @@ import Axios from 'axios';
   Drupal.behaviors.fetchLicense = {
     attach: function (context) {
 
-      // var iframes = document.querySelectorAll('.h5p-iframe');
-      // if (iframes) {
-      //   var i = iframes[0].contentWindow.H5P.instances[0];
-      //   var ms = i.getMaxScore();
-      //   console.log(ms);
-      // }
-      
-      // if (iframes.length !== 0) {
-      //   var instance = iframes[0].contentWindow.H5P.instances[0];
-      //   var maxScore = instance.getMaxScore ? instance.getMaxScore() : 0;
-      //   console.log("this max: " + maxScore);
-      // }
 
-      // let resourceToFetch = 'http://studio.v2/api/h5p/2256';
-
-      // Axios.get(resourceToFetch)
-      //   .then(response => {
-      //     console.log(response.data);
-      //   })
-      //   .catch(error => console.error(error));
     }
   };
   Drupal.behaviors.enableToolTips = {
@@ -193,27 +198,12 @@ import Axios from 'axios';
     attach: function (context) {
       $('.flag-bookmark.action-unflag').hover(
         function(){
-          // $('a', this).removeClass('btn-light');
-          // $('a', this).addClass('btn-danger');
+
           $('a > .material-icons', this).text('bookmark_remove');
         }, function() {
-          // $('a', this).removeClass('btn-danger');
-          // $('a', this).addClass('btn-light');
           $('a > .material-icons', this).text('bookmark_added');
         }
       );
-      // $('body.node .flag-bookmark').ready(function(){
-      //   e.stopPropagation();
-      //   $('body.node .flag-bookmark.action-flag').append("<span>Add to bookmarks</span>");
-      //   $('body.node .flag-bookmark.action-unflag').append("<span>Remove from bookmarks</span>");
-      // });
-
-      // $('body.node .flag-bookmark.action-flag').one(function(){
-      //   $('body.node .flag-bookmark.action-flag').append("<span>Add to bookmarks</span>");
-      //   $('body.node .flag-bookmark.action-unflag').append("<span>Remove from bookmarks</span>");
-      // });
-      
-      
     }
   };
 
@@ -290,9 +280,10 @@ import Axios from 'axios';
       const form = document.getElementById('discover-search');
 
       let dest = '/library?';
-      let subject = 'Subject=';
-      let keyword = '&key=';
+      let subject = '_s=';
+      let keyword = '&tags=';
       let type = '&H5P+Type=';
+      let level = '&edlevel=';
 
       /**
        * http://studio.v2/library?
@@ -332,38 +323,26 @@ import Axios from 'axios';
         }
       }
 
+      if (form) {
+        form.addEventListener('submit', (event) => {
+          event.preventDefault();
 
-      form.addEventListener('submit', (event) => {
-        event.preventDefault();
+          let edlevel = form.elements['select-level'];
+          let arr_edlevel = edlevel.value.split(',');
 
-        //console.log(form.elements['select-type'].value);
+          keyword = '&tags=' + encodeURIComponent($("#select-keywords").val());
+          
+          subject = convertData(form.elements['select-subject'],'_s');
+          level += convertData(form.elements['select-level'],'edlevel');
 
+          if (arr_edlevel[0] === 'all') {
+            level = '';
+          }
 
-        type += convertData(form.elements['select-type'],'type');
-        subject += convertData(form.elements['select-subject'],'_s');
-        keyword += convertData(form.elements['select-keywords'],'key');
-
-        
-        dest += subject + '&tags=&auth=' + keyword + type + '&License=';
-
-        // console.log(form.elements['select-type'].value);
-        // console.log(form.elements['select-subject'].value);
-
-        //console.log(dest);
-
-        window.location.href = dest;
-
-        // let select_types = form.elements['select-type'].value;
-        // let arr_types = 
-
-
-
-        
-
-
-
-      });
-
+          dest = '/library?' + subject + level + keyword;
+          window.location.href = dest;
+        });
+      }
 
     }
   };
@@ -430,16 +409,16 @@ import Axios from 'axios';
       });
 
       // Add descriptions for certain exposed filters
-      Drupal.exposedFilters.add_descriptions();
+      //Drupal.exposedFilters.add_descriptions();
 
       // Make checkbox filters searchable
-      Drupal.exposedFilters.search_checkboxes();
+      //Drupal.exposedFilters.search_checkboxes();
 
       // Make long lists of checkboxes expandable
       //Drupal.exposedFilters.expand_checkboxes();
 
       // Move selected checkboxes to top
-      Drupal.exposedFilters.selected_options();
+      //Drupal.exposedFilters.selected_options();
 
     }
   };
@@ -477,33 +456,28 @@ import Axios from 'axios';
       var collFilters = $('form[action="/browse/collections"]');
       var h5pFilters = $('form[action="/library"]');
 
-      $('details[data-drupal-selector="edit-tags-collapsible"] .card-body', collFilters).once().each(function() {
-        $(this).append('<p class="small text-muted">Enter multiple tags separated by commas to search for more than 1 tag.</p>');
-      });
-
-      $('details[data-drupal-selector="edit-key-collapsible"] .card-body', collFilters).once().each(function() {
-        $(this).append('<p class="small text-muted">Search titles and descriptions using a keyword.</p>');
-      });
-
-      // $('details[data-drupal-selector="edit-type-collapsible"] .card-body', h5pFilters).one(function() {
-      //   $(this).append('<p class="small text-muted">Search by H5P Content Type. Example: "Interactive Video". Start typing at least 3 letters for autocomplete options. You can review a list of content types available on <a href="https://h5p.org/content-types-and-applications" target="_blank">h5p.org</a>.</p>');
-      // });
-
-      // $('details[data-drupal-selector="edit-type-collapsible"] .card-body', h5pFilters).once().each(function() {
-      //   $(this).append('<p class="small text-muted">Search by H5P Content Type. Example: "Interactive Video". Start typing at least 3 letters for autocomplete options. You can review a list of content types available on <a href="https://h5p.org/content-types-and-applications" target="_blank">h5p.org</a>.</p>');
-      // })
-
-      $('details[data-drupal-selector="edit-key-collapsible"] .card-body', h5pFilters).once().each(function() {
-        $(this).append('<p class="small text-muted">Use a keyword to search titles, descriptions, author names, licenses, and other fields. Begin typing at least 3 letters for autocomplete options.</p>');
-      });
-
-      $('details[data-drupal-selector="edit-tags-collapsible"] .card-body', h5pFilters).once().each(function() {
-        $(this).append('<p class="small text-muted">Enter multiple tags separated by commas to search for more than 1 tag.</p>');
-      });
-      
-      $('details[data-drupal-selector="edit-auth-collapsible"] .card-body', h5pFilters).once().each(function() {
-        $(this).append('<p class="small text-muted">Search by author name. Must be an exact match for results.</p>');
-      });
+      if (collFilters) {
+        $('details[data-drupal-selector="edit-tags-collapsible"] .card-body', collFilters).each(function() {
+          $(this).append('<p class="small text-muted">Enter multiple tags separated by commas to search for more than 1 tag.</p>');
+        });
+  
+        $('details[data-drupal-selector="edit-key-collapsible"] .card-body', collFilters).each(function() {
+          $(this).append('<p class="small text-muted">Search titles and descriptions using a keyword.</p>');
+        });
+      }
+      if (h5pFilters) {
+        $('details[data-drupal-selector="edit-key-collapsible"] .card-body', h5pFilters).once().each(function() {
+          $(this).append('<p class="small text-muted">Use a keyword to search titles, descriptions, author names, licenses, and other fields. Begin typing at least 3 letters for autocomplete options.</p>');
+        });
+  
+        $('details[data-drupal-selector="edit-tags-collapsible"] .card-body', h5pFilters).once().each(function() {
+          $(this).append('<p class="small text-muted">Enter multiple tags separated by commas to search for more than 1 tag.</p>');
+        });
+        
+        $('details[data-drupal-selector="edit-auth-collapsible"] .card-body', h5pFilters).once().each(function() {
+          $(this).append('<p class="small text-muted">Search by author name. Must be an exact match for results.</p>');
+        });
+      }
 
     },
 

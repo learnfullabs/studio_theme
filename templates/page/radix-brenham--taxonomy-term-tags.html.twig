@@ -1,7 +1,7 @@
 {#
 /**
  * @file
- * Template for Radix Brenham Flipped.
+ * Template for Radix Brenham.
  *
  * Variables:
  * - $css_id: An optional CSS id to use for the layout.
@@ -12,7 +12,7 @@
 {%
     set container_classes = [
     'panel-display',
-    'brenham-flipped',
+    'brenham',
     'clearfix'
 ]
 %}
@@ -23,12 +23,11 @@
     {% set container_classes = container_classes|merge(class) %}
 {% endif %}
 
-
 <div {{ attributes.addClass(container_classes) }}{% if css_id %}{{ css_id }}{% endif %}>
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-12 radix-layouts-header panel-panel">
+      <div class="col-lg-12 radix-layouts-header panel-panel">
         <div {{ region_attributes.header.addClass('panel-panel-inner') }}>
           {{ content.header }}
         </div>
@@ -36,17 +35,17 @@
     </div>
 
     <div class="row">
-      <div class="col-12 col-md-7 pr-0 pl-0 pr-md-4 pr-lg-5 radix-layouts-content panel-panel">
-        <div {{ region_attributes.contentmain.addClass('panel-panel-inner') }}>
-          {{ content.contentmain }}
-        </div>
-      </div>
-      <div class="col-12 col-md-5 mt-4 mt-md-0 radix-layouts-sidebar panel-panel">
+      <div class="col-lg-3 col-md-4 col-sm-12 radix-layouts-sidebar panel-panel">
         <div {{ region_attributes.sidebar.addClass('panel-panel-inner') }}>
           {{ content.sidebar }}
+        </div>
+      </div>
+      <div class="col-lg-9 col-md-8 col-sm-12 radix-layouts-content panel-panel">
+        <div {{ region_attributes.contentmain.addClass('panel-panel-inner') }}>
+          {{ content.contentmain }}
         </div>
       </div>
     </div>
   </div>
     
-</div><!-- /.brenham-flipped -->
+</div><!-- /.brenham -->

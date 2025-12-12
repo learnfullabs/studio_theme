@@ -1,3 +1,48 @@
-.copy-button {
-  cursor: pointer;
+@include media-breakpoint-up(md) { 
+  .boxes-bottom-left::after {
+    display: none;
+  }
+
+  .copy-button {
+    cursor: pointer;
+  }
 }
+
+
+
+
+@include media-breakpoint-up(xl) { 
+  .boxes-bottom-left::after {
+    content: '';
+    background-image: url('/themes/custom/studio_theme/assets/images/blocks-1.svg');
+    display: block;
+    position: absolute;
+    bottom: -50px;
+    left: -75px;
+    width: 190px;
+    height: 190px;
+  }
+}
+
+@media screen and (min-width: 1500px) { 
+  .boxes-bottom-left::after {
+    left: 0px;
+  }
+
+}
+
+
+/**
+ * Term Hierarchy View
+ */
+div.mb-3 > ul.term {
+  padding: 0;
+  list-style-type: none;
+  li:has(ul.term) {
+    list-style-type: none;
+  }
+  ul.term {
+    padding-left: 1.5em;
+  }
+}
+

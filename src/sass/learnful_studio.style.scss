@@ -70,6 +70,8 @@
 @import "views/pager";
 @import "views/cards";
 @import "views/library";
+@import "views/events";
+
 
 
 // Component
@@ -85,3 +87,4 @@
 // -----------------------------------------------------------------------------
 @import "features/flags";
 @import "features/other";
+@import "features/login-register";
